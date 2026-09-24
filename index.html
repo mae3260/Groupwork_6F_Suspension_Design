@@ -420,59 +420,12 @@
       border-color: var(--rose);
     }
 
-    .match-banner {
-      display: none;
-      margin-top: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px;
-      padding: 10px 14px;
-      border-radius: 6px;
-      border: 1px solid var(--line);
-    }
-
-    .match-banner.match {
-      display: block;
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-
-    .match-banner.no-match {
-      display: block;
-      border-color: var(--rose);
-      color: var(--rose);
-    }
-
     .field-err {
       font-size: 11px;
       color: var(--rose);
       margin: 8px 0 0 0;
       min-height: 14px;
       font-family: 'JetBrains Mono', monospace;
-    }
-
-    .spec-badges {
-      display: flex;
-      gap: 10px;
-      margin: 14px 0;
-      flex-wrap: wrap;
-    }
-
-    .spec-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      padding: 7px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--line);
-    }
-
-    .spec-badge.pass {
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-
-    .spec-badge.fail {
-      border-color: var(--rose);
-      color: var(--rose);
     }
 
     .plots-row {
@@ -706,9 +659,6 @@
               <div class="field"><label>num R&rarr;Y</label><input type="text" id="input-num-y" spellcheck="false" />
               </div>
             </div>
-            <button class="run-btn" id="btn-check-num-y">CHECK</button>
-            <p class="field-err" id="err-num-y"></p>
-            <div class="match-banner" id="banner-num-y"></div>
           </div>
 
           <div class="panel-box">
@@ -717,9 +667,6 @@
               <div class="field"><label>num R&rarr;A</label><input type="text" id="input-num-a" spellcheck="false" />
               </div>
             </div>
-            <button class="run-btn" id="btn-check-num-a">CHECK</button>
-            <p class="field-err" id="err-num-a"></p>
-            <div class="match-banner" id="banner-num-a"></div>
           </div>
 
           <div class="panel-box">
@@ -728,9 +675,6 @@
               <div class="field"><label>num R&rarr;D</label><input type="text" id="input-num-d" spellcheck="false" />
               </div>
             </div>
-            <button class="run-btn" id="btn-check-num-d">CHECK</button>
-            <p class="field-err" id="err-num-d"></p>
-            <div class="match-banner" id="banner-num-d"></div>
           </div>
 
           <p class="instructions">
@@ -745,9 +689,6 @@
               <div class="field"><label>G<sub>RtoY</sub>max(R0)</label><input type="text" id="input-ratio-y"
                   spellcheck="false" /></div>
             </div>
-            <button class="run-btn" id="btn-check-ratio-y">CHECK</button>
-            <p class="field-err" id="err-ratio-y"></p>
-            <div class="match-banner" id="banner-ratio-y"></div>
           </div>
 
           <div class="panel-box">
@@ -756,9 +697,6 @@
               <div class="field"><label>G<sub>RtoA</sub>max(R0)</label><input type="text" id="input-ratio-a"
                   spellcheck="false" /></div>
             </div>
-            <button class="run-btn" id="btn-check-ratio-a">CHECK</button>
-            <p class="field-err" id="err-ratio-a"></p>
-            <div class="match-banner" id="banner-ratio-a"></div>
           </div>
 
           <div class="panel-box">
@@ -767,13 +705,10 @@
               <div class="field"><label>G<sub>RtoD</sub>max(R0)</label><input type="text" id="input-ratio-d"
                   spellcheck="false" /></div>
             </div>
-            <button class="run-btn" id="btn-check-ratio-d">CHECK</button>
-            <p class="field-err" id="err-ratio-d"></p>
-            <div class="match-banner" id="banner-ratio-d"></div>
           </div>
 
           <p class="instructions">
-            Once the six checks above are correct, generate the three frequency response plots (at the
+            Once you've entered all six formulas above, generate the three frequency response plots (at the
             default damping b = 50, before any iteration). The shaded region is your own "forbidden zone" ---
             your blue curve must stay outside of it within the marked frequency range to meet the requirement.
           </p>
@@ -782,7 +717,7 @@
 
           <p class="plot-label">Road &rarr; Position, |Y/R| (cm/cm)</p>
           <div class="plot-host" id="plot-p1-y">
-            <div class="placeholder">Complete the checks above, then click Generate.</div>
+            <div class="placeholder">Enter the formulas above, then click Generate.</div>
           </div>
           <p class="plot-label">Road &rarr; Acceleration, |A/R| (cm/s&sup2;/cm)</p>
           <div class="plot-host" id="plot-p1-a"></div>
@@ -816,8 +751,6 @@
             </div>
           </div>
 
-          <div class="spec-badges" id="p2-spec-badges"></div>
-
           <p class="plot-label">Road &rarr; Position, |Y/R| (cm/cm)</p>
           <div class="plot-host" id="plot-p2-y"></div>
           <p class="plot-label">Road &rarr; Acceleration, |A/R| (cm/s&sup2;/cm)</p>
@@ -832,8 +765,6 @@
             <div class="field"><label>b max (Ns/m)</label><input type="number" id="input-bmax" value="" step="any" />
             </div>
           </div>
-          <button class="run-btn" id="btn-check-brange">CHECK</button>
-          <div class="match-banner" id="banner-brange"></div>
 
           <h4 class="part-title">Discussion</h4>
           <p class="instructions">Which specification(s) (y(t), a(t), d(t)) are the limiting factors? Select a value of
@@ -878,7 +809,6 @@
           <p class="b-echo">Using damping coefficient <b id="p4-b-echo">b = 50 Ns/m</b> (set in Problem 2).</p>
 
           <button class="run-btn" id="btn-p4-run">RUN SPEED BUMP SIMULATION</button>
-          <div class="spec-badges" id="p4-spec-badges"></div>
 
           <p class="plot-label">Car Position y(t) to a Speed Bump (cm)</p>
           <div class="plot-host tall" id="plot-p4-y">
@@ -896,8 +826,6 @@
             <div class="field"><label>b max (Ns/m)</label><input type="number" id="input-bmax2" value="" step="any" />
             </div>
           </div>
-          <button class="run-btn" id="btn-check-brange2">CHECK</button>
-          <div class="match-banner" id="banner-brange2"></div>
 
           <h4 class="part-title">Discussion</h4>
           <p class="instructions">What are the limiting specifications now? What is your final chosen value of b, and
@@ -990,38 +918,6 @@
         return r0 * Math.exp(-a * t) * (A * Math.cos(wd * t) + B * Math.sin(wd * t));
       }
 
-      // ---------------------------------------------------------------
-      // Reference b-range solvers (used to grade the "determine the range
-      // of b" discussion inputs in Problems 2 & 4). Computed once at load.
-      // ---------------------------------------------------------------
-      function bumpyRoadOk(b) {
-        const d = den(b);
-        let maxY = 0, maxA = 0, maxD = 0;
-        for (let w = SPEC_WINDOW.y[0]; w <= SPEC_WINDOW.y[1]; w += 0.05) {
-          maxY = Math.max(maxY, magAt(correctNum("y", b), d, w) / correctRatio("y"));
-          maxA = Math.max(maxA, magAt(correctNum("a", b), d, w) / correctRatio("a"));
-        }
-        for (let w = SPEC_WINDOW.d[0]; w <= SPEC_WINDOW.d[1]; w *= 1.01) {
-          maxD = Math.max(maxD, magAt(correctNum("d", b), d, w) / correctRatio("d"));
-        }
-        return maxY <= 1 && maxA <= 1 && maxD <= 1;
-      }
-      function speedBumpOk(b) {
-        let maxYafter = 0, maxDall = 0;
-        for (let t = 2; t <= 10; t += 0.005) maxYafter = Math.max(maxYafter, Math.abs(impulseResponseY(t, b, R0)));
-        for (let t = 0.0005; t <= 10; t += 0.005) maxDall = Math.max(maxDall, Math.abs(impulseResponseY(t, b, R0)));
-        return maxYafter < 1 && maxDall < 10;
-      }
-      function findRange(predicate) {
-        let bmin = null, bmax = null;
-        for (let b = 20; b <= 500; b += 1) {
-          if (predicate(b)) { if (bmin === null) bmin = b; bmax = b; }
-        }
-        return { bmin, bmax };
-      }
-      const TRUE_RANGE_BUMPY = findRange(bumpyRoadOk);
-      const TRUE_RANGE_COMBINED = findRange((b) => bumpyRoadOk(b) && speedBumpOk(b));
-
       // =================================================================
       // Shared plot styling
       // =================================================================
@@ -1068,7 +964,7 @@
       const runFlags = {};
 
       // =================================================================
-      // Problem 1: numerator + ratio formula checkers
+      // Problem 1: numerator + ratio formula parsing
       // =================================================================
       function parseCoeffExprList(str) {
         const cleaned = str.trim().replace(/^\[/, "").replace(/\]$/, "").trim();
@@ -1076,76 +972,6 @@
         if (parts.length === 0) throw new Error("empty");
         return parts;
       }
-
-      function checkNumerator(kind, inputId, errId, bannerId) {
-        const errEl = document.getElementById(errId);
-        const bannerEl = document.getElementById(bannerId);
-        errEl.textContent = ""; bannerEl.className = "match-banner"; bannerEl.textContent = "";
-        const raw = document.getElementById(inputId).value.trim();
-        if (!raw) { errEl.textContent = "Enter the numerator coefficients."; return false; }
-        let tokens;
-        try { tokens = parseCoeffExprList(raw); } catch (e) { errEl.textContent = "Enter coefficients separated by spaces or commas."; return false; }
-
-        const testBs = [20, 50, 150, 300, 425, 500];
-        const refLen = correctNum(kind, 50).length;
-        if (tokens.length !== refLen) {
-          errEl.textContent = `Expected ${refLen} coefficient(s) for this transfer function.`;
-          return false;
-        }
-        let ok = true;
-        for (const b of testBs) {
-          const scope = { m: M, k: K, b: b };
-          let studentArr;
-          try {
-            studentArr = tokens.map((tok) => {
-              const v = math.evaluate(tok, scope);
-              if (typeof v !== "number" || !isFinite(v)) throw new Error("nan");
-              return v;
-            });
-          } catch (e) { errEl.textContent = "Couldn't evaluate one of the coefficients."; return false; }
-          const ref = correctNum(kind, b);
-          for (let i = 0; i < ref.length; i++) {
-            const tol = Math.max(1e-6, Math.abs(ref[i]) * 1e-4);
-            if (Math.abs(studentArr[i] - ref[i]) > tol) { ok = false; break; }
-          }
-          if (!ok) break;
-        }
-        bannerEl.className = ok ? "match-banner match" : "match-banner no-match";
-        bannerEl.textContent = ok ? "✓ Correct." : "✗ Not quite — try again.";
-        return ok;
-      }
-
-      function checkRatio(kind, inputId, errId, bannerId) {
-        const errEl = document.getElementById(errId);
-        const bannerEl = document.getElementById(bannerId);
-        errEl.textContent = ""; bannerEl.className = "match-banner"; bannerEl.textContent = "";
-        const raw = document.getElementById(inputId).value.trim();
-        if (!raw) { errEl.textContent = "Enter a formula in terms of R0."; return false; }
-        if (!/\bR0\b/.test(raw)) { errEl.textContent = "Your formula should depend on R0."; return false; }
-
-        const testR0s = [1, 5, 10, 20];
-        let ok = true;
-        for (const r0 of testR0s) {
-          let v;
-          try {
-            v = math.evaluate(raw, { R0: r0 });
-            if (typeof v !== "number" || !isFinite(v)) throw new Error("nan");
-          } catch (e) { errEl.textContent = "Couldn't evaluate this expression."; return false; }
-          const ref = SPEC_BOUND_REAL[kind] / r0;
-          const tol = Math.max(1e-6, Math.abs(ref) * 1e-3);
-          if (Math.abs(v - ref) > tol) { ok = false; break; }
-        }
-        bannerEl.className = ok ? "match-banner match" : "match-banner no-match";
-        bannerEl.textContent = ok ? "✓ Correct." : "✗ Not quite — try again.";
-        return ok;
-      }
-
-      document.getElementById("btn-check-num-y").addEventListener("click", () => { checkNumerator("y", "input-num-y", "err-num-y", "banner-num-y"); scheduleSave(); });
-      document.getElementById("btn-check-num-a").addEventListener("click", () => { checkNumerator("a", "input-num-a", "err-num-a", "banner-num-a"); scheduleSave(); });
-      document.getElementById("btn-check-num-d").addEventListener("click", () => { checkNumerator("d", "input-num-d", "err-num-d", "banner-num-d"); scheduleSave(); });
-      document.getElementById("btn-check-ratio-y").addEventListener("click", () => { checkRatio("y", "input-ratio-y", "err-ratio-y", "banner-ratio-y"); scheduleSave(); });
-      document.getElementById("btn-check-ratio-a").addEventListener("click", () => { checkRatio("a", "input-ratio-a", "err-ratio-a", "banner-ratio-a"); scheduleSave(); });
-      document.getElementById("btn-check-ratio-d").addEventListener("click", () => { checkRatio("d", "input-ratio-d", "err-ratio-d", "banner-ratio-d"); scheduleSave(); });
 
       // ---------------------------------------------------------------
       // Problem 1: generate the three frequency-response plots at the
@@ -1191,7 +1017,7 @@
           renderFreqPlot("plot-p1-d", "d", numD, 50, ratD, Math.max(ratD * 10, 20));
           runFlags.p1 = true;
         } catch (e) {
-          errEl.textContent = "Enter and check all six formulas above first.";
+          errEl.textContent = "Enter all six formulas above first.";
         }
         scheduleSave();
       });
@@ -1209,43 +1035,18 @@
 
       function renderP2Plots() {
         const b = currentB();
-        const d = den(b);
-        const specs = { y: {}, a: {}, d: {} };
-        let badgesHtml = "";
         ["y", "a", "d"].forEach((kind) => {
-          const [w1, w2] = SPEC_WINDOW[kind];
           const num = correctNum(kind, b);
-          let maxRatio = 0;
-          const stepMul = kind === "d" ? 1.01 : null;
-          if (kind === "d") { for (let w = w1; w <= w2; w *= stepMul) maxRatio = Math.max(maxRatio, magAt(num, d, w) / correctRatio(kind)); }
-          else { for (let w = w1; w <= w2; w += 0.02) maxRatio = Math.max(maxRatio, magAt(num, d, w) / correctRatio(kind)); }
-          const pass = maxRatio <= 1;
-          specs[kind] = pass;
-          const labelMap = { y: "Position y(t)", a: "Acceleration a(t)", d: "Shock travel d(t)" };
-          badgesHtml += `<span class="spec-badge ${pass ? "pass" : "fail"}">${pass ? "✓" : "✗"} ${labelMap[kind]}</span>`;
           const axisTop = kind === "y" ? 10 : (kind === "a" ? 400 : 20);
           renderFreqPlot(`plot-p2-${kind}`, kind, num, b, correctRatio(kind), axisTop);
         });
-        document.getElementById("p2-spec-badges").innerHTML = badgesHtml;
       }
       document.getElementById("input-b").addEventListener("input", () => { updateBReadouts(); renderP2Plots(); scheduleSave(); });
-
-      document.getElementById("btn-check-brange").addEventListener("click", () => {
-        const bannerEl = document.getElementById("banner-brange");
-        const bmin = Number(document.getElementById("input-bmin").value);
-        const bmax = Number(document.getElementById("input-bmax").value);
-        if (!isFinite(bmin) || !isFinite(bmax)) { bannerEl.className = "match-banner no-match"; bannerEl.textContent = "Enter numbers for both bounds."; return; }
-        const tol = 20;
-        const ok = Math.abs(bmin - TRUE_RANGE_BUMPY.bmin) <= tol && Math.abs(bmax - TRUE_RANGE_BUMPY.bmax) <= tol;
-        bannerEl.className = ok ? "match-banner match" : "match-banner no-match";
-        bannerEl.textContent = ok ? "✓ Correct." : "✗ Not quite — try again.";
-        scheduleSave();
-      });
 
       // =================================================================
       // Problem 3: worst-case sinusoidal simulation, one panel per variable
       // =================================================================
-      function buildSimCasePanel(containerId, kind, label, yTitle, yBound) {
+      function buildSimCasePanel(containerId, kind, label, yTitle) {
         const container = document.getElementById(containerId);
         container.innerHTML = `
       <div class="subpanel">
@@ -1255,14 +1056,15 @@
           <div class="field"><label>&omega; (rad/s)</label><input type="number" id="input-p3-${kind}-w" value="" step="any" /></div>
         </div>
         <button class="run-btn" id="btn-p3-${kind}-run">RUN</button>
-        <div class="spec-badges" id="badge-p3-${kind}"></div>
+        <p class="field-err" id="err-p3-${kind}"></p>
         <div class="plot-host" id="plot-p3-${kind}"><div class="placeholder">Enter &omega; and click Run.</div></div>
       </div>
     `;
         document.getElementById(`btn-p3-${kind}-run`).addEventListener("click", () => {
           const w = Number(document.getElementById(`input-p3-${kind}-w`).value);
-          const badgeEl = document.getElementById(`badge-p3-${kind}`);
-          if (!isFinite(w) || w <= 0) { badgeEl.innerHTML = `<span class="spec-badge fail">Enter a positive frequency.</span>`; return; }
+          const errEl = document.getElementById(`err-p3-${kind}`);
+          errEl.textContent = "";
+          if (!isFinite(w) || w <= 0) { errEl.textContent = "Enter a positive frequency."; return; }
           const b = currentB();
           const { mag, phase } = magPhaseAt(correctNum(kind, b), den(b), w);
           const amplitude = R0 * mag;
@@ -1276,16 +1078,13 @@
             { x: tArr, y: yArr, mode: "lines", line: { color: "#FFB454", width: 2.2 }, name: `${kind}(t)` },
           ], plotLayout(yTitle, { xTitle: "time [s] (one steady-state period)", showlegend: true }), PLOT_OPTS);
 
-          const pass = amplitude < yBound;
-          const inWindowRatio = mag / correctRatio(kind);
-          badgeEl.innerHTML = `<span class="spec-badge ${pass ? "pass" : "fail"}">${pass ? "✓" : "✗"} amplitude = ${amplitude.toFixed(3)} ${kind === "a" ? "cm/s²" : "cm"} (spec: &lt; ${yBound} ${kind === "a" ? "cm/s²" : "cm"})</span>`;
           runFlags["p3" + kind] = true;
           scheduleSave();
         });
       }
-      buildSimCasePanel("p3-case-y", "y", "Road → Position y(t)", "y(t), r(t) [cm]", SPEC_BOUND_REAL.y);
-      buildSimCasePanel("p3-case-a", "a", "Road → Acceleration a(t)", "a(t) [cm/s²], r(t) [cm]", SPEC_BOUND_REAL.a);
-      buildSimCasePanel("p3-case-d", "d", "Road → Shock Travel d(t)", "d(t), r(t) [cm]", SPEC_BOUND_REAL.d);
+      buildSimCasePanel("p3-case-y", "y", "Road → Position y(t)", "y(t), r(t) [cm]");
+      buildSimCasePanel("p3-case-a", "a", "Road → Acceleration a(t)", "a(t) [cm/s²], r(t) [cm]");
+      buildSimCasePanel("p3-case-d", "d", "Road → Shock Travel d(t)", "d(t), r(t) [cm]");
 
       // =================================================================
       // Problem 4: speed bump (impulse) simulation
@@ -1321,28 +1120,7 @@
           ],
         }), PLOT_OPTS);
 
-        let maxYafter = 0, maxDall = 0;
-        tArr.forEach((t, i) => {
-          if (t >= yTmin) maxYafter = Math.max(maxYafter, Math.abs(yArr[i]));
-          if (t > 0) maxDall = Math.max(maxDall, Math.abs(dArr[i]));
-        });
-        const passY = maxYafter < yMax, passD = maxDall < dMax;
-        document.getElementById("p4-spec-badges").innerHTML =
-          `<span class="spec-badge ${passY ? "pass" : "fail"}">${passY ? "✓" : "✗"} |y(t)| for t&gt;2s: max ${maxYafter.toFixed(3)} cm (spec: &lt; ${yMax} cm)</span>` +
-          `<span class="spec-badge ${passD ? "pass" : "fail"}">${passD ? "✓" : "✗"} |d(t)| all t: max ${maxDall.toFixed(3)} cm (spec: &lt; ${dMax} cm)</span>`;
         runFlags.p4 = true;
-        scheduleSave();
-      });
-
-      document.getElementById("btn-check-brange2").addEventListener("click", () => {
-        const bannerEl = document.getElementById("banner-brange2");
-        const bmin = Number(document.getElementById("input-bmin2").value);
-        const bmax = Number(document.getElementById("input-bmax2").value);
-        if (!isFinite(bmin) || !isFinite(bmax)) { bannerEl.className = "match-banner no-match"; bannerEl.textContent = "Enter numbers for both bounds."; return; }
-        const tol = 20;
-        const ok = Math.abs(bmin - TRUE_RANGE_COMBINED.bmin) <= tol && Math.abs(bmax - TRUE_RANGE_COMBINED.bmax) <= tol;
-        bannerEl.className = ok ? "match-banner match" : "match-banner no-match";
-        bannerEl.textContent = ok ? "✓ Correct." : "✗ Not quite — try again.";
         scheduleSave();
       });
 
